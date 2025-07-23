@@ -3,28 +3,36 @@
 
     <input type="hidden" name="_method" value="PUT">
 
-    <div class="form-group">
-        <label for="nama">Nama Produk</label>
-        <input type="text" class="form-control" id="nama" name="nama" value="<?= $item['nama'] ?>" required>
-    </div>
-    <div class="form-group">
-        <label for="kode">Kode</label>
-        <input type="text" class="form-control" id="kode" name="kode" value="<?= $item['kode'] ?>" required>
-    </div>
+<!--    <div class="form-group">-->
+<!--        <label for="nama">Nama Produk</label>-->
+<!--        <input type="text" class="form-control" id="nama" name="nama" value="--><?php //= $item['nama'] ?><!--" required>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="kode">Kode</label>-->
+<!--        <input type="text" class="form-control" id="kode" name="kode" value="--><?php //= $item['kode'] ?><!--" required>-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--        <label for="kategori_id">Supplier</label>-->
+<!--        <select class="form-control" id="kategori_id" name="kategori_id" required>-->
+<!--            <option value="--><?php //= $item['id_kategori'] ?><!--">--><?php //= $item['nama_kategori'] ?><!--</option>-->
+<!--            --><?php //foreach ($kategori as $k): ?>
+<!--                <option value="--><?php //= $k['id'] ?><!--">--><?php //= $k['nama'] ?><!--</option>-->
+<!--            --><?php //endforeach; ?>
+<!--        </select>-->
+<!--    </div>-->
 
     <div class="form-group">
-        <label for="kategori_id">Supplier</label>
-        <select class="form-control" id="kategori_id" name="kategori_id" required>
-            <option value="<?= $item['id_kategori'] ?>"><?= $item['nama_kategori'] ?></option>
-            <?php foreach ($kategori as $k): ?>
-                <option value="<?= $k['id'] ?>"><?= $k['nama'] ?></option>
-            <?php endforeach; ?>
-        </select>
+        <label for="kemasan_kecil">Kemasan Kecil</label>
+        <input type="text" class="form-control" id="kemasan_kecil" name="kemasan_kecil" value="<?= $item['kemasan_kecil'] ?>" required>
     </div>
-
     <div class="form-group">
-        <label for="harga">Harga</label>
-        <input type="text" class="form-control" id="harga" name="harga" value="<?= $item['harga'] ?>" required>
+        <label for="satuan_stok">Satuan Stok</label>
+        <input type="text" class="form-control" id="satuan_stok" name="satuan_stok" value="<?= $item['satuan_stok'] ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="laba">Laba</label>
+        <input type="text" class="form-control" id="laba" name="laba" value="<?= $item['laba'] ?>" required>
     </div>
 
     <div class="form-group">
@@ -37,22 +45,22 @@
         <input type="file" class="form-control" id="foto" name="foto">
     </div>
 
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="stok">Stok</label>
-            <input type="text" class="form-control" id="stok" name="stok" value="<?= $item['stok'] ?>" required>
-        </div>
-
-        <div class="form-group">
-            <label for="satuan_stok">Satuan Stok</label>
-            <select class="form-control" id="satuan_stok" name="satuan_stok">
-                <option value="">-- Pilih Satuan --</option>
-                <?php foreach ($satuanStok as $ss): ?>
-                    <option value="<?= $ss['nama'] ?>"><?= $ss['nama'] ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
-    </div>
+<!--    <div class="form-row">-->
+<!--        <div class="form-group col-md-6">-->
+<!--            <label for="kemasan_kecil">Kemasan Kecil</label>-->
+<!--            <input type="text" class="form-control" id="stok" name="stok" value="--><?php //= $item['stok'] ?><!--" required>-->
+<!--        </div>-->
+<!---->
+<!--        <div class="form-group">-->
+<!--            <label for="satuan_stok">Satuan Stok</label>-->
+<!--            <select class="form-control" id="satuan_stok" name="satuan_stok">-->
+<!--                <option value="">-- Pilih Satuan --</option>-->
+<!--                --><?php //foreach ($satuanStok as $ss): ?>
+<!--                    <option value="--><?php //= $ss['nama'] ?><!--">--><?php //= $ss['nama'] ?><!--</option>-->
+<!--                --><?php //endforeach; ?>
+<!--            </select>-->
+<!--        </div>-->
+<!--    </div>-->
 
     <button type="submit" class="btn btn-primary">Simpan</button>
 </form>

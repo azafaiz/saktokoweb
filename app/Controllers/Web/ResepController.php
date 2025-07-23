@@ -49,6 +49,8 @@ class ResepController extends BaseController
         $bahan = $this->request->getPost('bahan');
         $prosedur = $this->request->getPost('prosedur');
 
+        dd($this->request->getPost());
+
         // dd($nama, $deskripsi, $foto, $bumbu, $bahan, $prosedur);
 
         if ($bumbu == null || $bahan == null || $prosedur == null) {

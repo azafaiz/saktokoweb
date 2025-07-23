@@ -72,6 +72,7 @@ class ProdukGudangController extends BaseController
             ->orderBy('id', 'DESC')
             ->paginate(10);
 
+
         $produkMentah = $this->produkGudangModel
             ->where('jenis_value', 1)
             ->findAll();
@@ -150,14 +151,14 @@ class ProdukGudangController extends BaseController
     public function update($id)
     {
         $foto = $this->request->getFile('foto');
+        $oldProdukGudang = $this->produkGudangModel->where('id', $id)->first();
 
         if (!$foto->isValid()) {
             $data = [
-                'nama' => $this->request->getPost('nama'),
-                'kode' => $this->request->getPost('kode'),
-                'harga' => $this->request->getPost('harga'),
-                'stok' => $this->request->getPost('stok'),
-                'kategori_id' => $this->request->getPost('kategori_id'),
+                'kemasan_kecil' => $this->request->getPost('kemasan_kecil'),
+                'satuan_stok' => $this->request->getPost('satuan_stok'),
+                'laba' => $this->request->getPost('laba'),
+                'harga' => $oldProdukGudang['harga_satuan_besar'] / $this->request->getPost('kemasan_kecil'),
             ];
 
             $this->produkGudangModel->update($id, $data);
@@ -172,11 +173,9 @@ class ProdukGudangController extends BaseController
             }
     
             $data = [
-                'nama' => $this->request->getPost('nama'),
-                'kode' => $this->request->getPost('kode'),
-                'harga' => $this->request->getPost('harga'),
-                'stok' => $this->request->getPost('stok'),
-                'kategori_id' => $this->request->getPost('kategori_id'),
+                'kemasan_kecil' => $this->request->getPost('nama'),
+                'satuan_stok' => $this->request->getPost('satuan_stok'),
+                'laba' => $this->request->getPost('laba'),
                 'foto' => $filename
             ];
     

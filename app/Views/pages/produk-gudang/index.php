@@ -58,8 +58,8 @@ Produk Gudang
                                     </div>
                                 </form>
                                 <div>
-                                    <a href="/admin/produk-mentah" class="btn btn-primary">Pengemasan Stok</a>
-                                    <a href="/admin/produk-mentah" class="btn btn-primary">Produk Mentah</a>
+                                    <a href="/admin/pengemasan-stok" class="btn btn-primary">Pengemasan Stok</a>
+<!--                                    <a href="/admin/produk-mentah" class="btn btn-primary">Produk Mentah</a>-->
                                 </div>
                             </div>
                             <div class="table-responsive">
@@ -69,8 +69,14 @@ Produk Gudang
                                         <th class="text-center">No</th>
                                         <th>Foto</th>
                                         <th>Nama Produk</th>
-                                        <th>Harga</th>
-                                        <th>Stok</th>
+                                        <th>Jumlah</th>
+                                        <th>Harga Satuan</th>
+                                        <th>Total</th>
+                                        <th>Kemasan Kecil</th>
+                                        <th>Jumlah Stok</th>
+                                        <th>Harga / Kemasan</th>
+                                        <th>Laba</th>
+                                        <th>Harga + laba</th>
                                         <th>Aksi</th>
                                     </tr>
                                     </thead>
@@ -84,8 +90,14 @@ Produk Gudang
                                                 <?php endif; ?>
                                             </td>
                                             <td><?= esc($item['nama']) ?></td>
-                                            <td>Rp. <?= esc(number_format($item['harga'])) ?></td>
-                                            <td><?= esc($item['stok']) ?> <?= esc($item['satuan_stok']) ?></td>
+                                            <td><?= esc($item['jumlah_besar']) ?> <?= esc($item['satuan_besar']) ?></td>
+                                            <td> <?= esc(number_format($item['harga_satuan_besar'])) ?></td>
+                                            <td> <?= esc(number_format($item['harga_satuan_besar'] * $item['jumlah_besar'])) ?></td>
+                                            <td><?= esc($item['kemasan_kecil']) ?> <?= esc($item['satuan_stok']) ?></td>
+                                            <td><?= esc($item['kemasan_kecil']) * $item['jumlah_besar'] - $item['stok_terjual']?></td>
+                                            <td> <?= esc($item['kemasan_kecil'] !== null ? number_format($item['harga_satuan_besar'] / $item['kemasan_kecil']) : 'masukan kemasan kecil')  ?></td>
+                                            <td> <?= esc(number_format($item['laba'])) ?></td>
+                                            <td> <?= esc(number_format($item['harga'] + $item['laba'])) ?></td>
                                             <td>
                                                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-show-<?= $item['id'] ?>">
                                                     <i class="fas fa-eye"></i>

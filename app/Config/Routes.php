@@ -51,6 +51,10 @@ $routes->group('', ['namespace' => 'App\Controllers\Web', 'filter' => 'auth'], f
         $routes->put('supplier/update/(:num)', 'SupplierController::update/$1');
         $routes->post('supplier/delete/(:num)', 'SupplierController::delete/$1');
 
+        //Pembelian Form
+        $routes->get('pembelian-supplier', 'PembelianController::createForm');
+        $routes->post('pembelian-supplier/store', 'PembelianController::store');
+
         // Produk Mentah
         $routes->get('produk-mentah', 'ProdukMentahController::index');
         $routes->get('produk-mentah/pengemasan-produk/(:num)', 'ProdukMentahController::showPengemasanProduk/$1');
