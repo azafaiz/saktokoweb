@@ -86,6 +86,10 @@
         </section>
     </div>
 
+
+    <script>
+        const kategoriData = <?= json_encode($kategori) ?>;
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const addProdukButton = document.getElementById('addProduk');
@@ -95,19 +99,22 @@
                 const produk = document.createElement('div');
                 produk.className = 'd-flex mb-2 gap-1 align-items-center produk-item';
 
+                let kategoriOptions = '<option value="">Pilih Kategori</option>';
+                kategoriData.forEach(item => {
+                    kategoriOptions += `<option value="${item.id}">${item.nama}</option>`;
+                });
+
                 produk.innerHTML = `
-                <input type="text" class="form-control" name="nama_produk[]" placeholder="Nama Produk" required>
-                <input type="number" class="form-control" name="jumlah[]" placeholder="Jumlah" required>
-                <input type="number" class="form-control" name="harga[]" placeholder="Harga" required>
-                <select class="form-control" name="satuan[]" required>
-                    <option value="">Pilih Satuan</option>
-                    <option value="gram">Gram</option>
-                    <option value="pcs">Pcs</option>
-                    <option value="liter">Liter</option>
-                </select>
-                <input type="text" class="form-control" name="kode_produk[]" placeholder="Kode Produk" required>
-                <button type="button" class="btn btn-sm btn-danger removeProduk"><i class="fas fa-trash"></i></button>
-            `;
+                    <input type="text" class="form-control" name="nama_produk[]" placeholder="Nama Produk" required>
+                    <input type="number" class="form-control" name="jumlah[]" placeholder="Jumlah" required>
+                    <input type="text" class="form-control" name="satuan[]" placeholder="Satuan" required>
+                    <input type="number" class="form-control" name="harga[]" placeholder="Harga Satuan" required>
+                    <select class="form-control" name="kategori[]" required>
+                        ${kategoriOptions}
+                    </select>
+                    <input type="text" class="form-control" name="kode_produk[]" placeholder="Kode Produk" required>
+                    <button type="button" class="btn btn-sm btn-danger removeProduk"><i class="fas fa-trash"></i></button>
+                `;
 
                 produkContainer.appendChild(produk);
             });
