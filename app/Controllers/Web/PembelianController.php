@@ -35,8 +35,8 @@ class PembelianController extends BaseController
         for ($i = 0; $i < count($post('kode_produk')); $i++) {
             $oldData = $this->produkGudangModel->where('kode', $post('kode_produk')[$i])->first();
             if ($oldData) {
-                $this->produkGudangModel->update($oldData->id, [
-                    'jumlah_besar' =>$oldData->jumlah_besar + $post('jumlah')[$i],
+                $this->produkGudangModel->update($oldData['id'], [
+                    'jumlah_besar' =>$oldData['jumlah_besar'] + $post('jumlah')[$i],
                 ]);
             } else {
                 $this->produkGudangModel->insert([

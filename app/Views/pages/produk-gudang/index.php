@@ -68,6 +68,7 @@ Produk Gudang
                                     <tr>
                                         <th class="text-center">No</th>
                                         <th>Foto</th>
+                                        <th>Kode</th>
                                         <th>Nama Produk</th>
                                         <th>Jumlah</th>
                                         <th>Harga Satuan</th>
@@ -89,6 +90,7 @@ Produk Gudang
                                                     <img src="<?= base_url('uploads/produk-gudang/' . $item['foto']) ?>" width="100px" height="100px" alt="">
                                                 <?php endif; ?>
                                             </td>
+                                            <td><?= esc($item['kode']) ?></td>
                                             <td><?= esc($item['nama']) ?></td>
                                             <td><?= esc($item['jumlah_besar']) ?> <?= esc($item['satuan_besar']) ?></td>
                                             <td> <?= esc(number_format($item['harga_satuan_besar'])) ?></td>
@@ -99,9 +101,6 @@ Produk Gudang
                                             <td> <?= esc(number_format($item['laba'])) ?></td>
                                             <td> <?= esc(number_format($item['harga'] + $item['laba'])) ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-show-<?= $item['id'] ?>">
-                                                    <i class="fas fa-eye"></i>
-                                                </button>
                                                 <!-- Tombol untuk membuka modal edit -->
                                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit-<?= $item['id'] ?>">
                                                     <i class="fas fa-edit"></i>
@@ -151,7 +150,7 @@ Produk Gudang
         'id' => 'modal-show-' . $item['id'],
         'title' => 'Detail Produk Gudang',
         'size' => 'modal-lg',
-        'slot' => view('pages/produk-gudang/show', ['$item' => $item, 'produkMentah' => $produkMentah, 'kategori' => $kategori])
+        'slot' => view('pages/produk-gudang/show', ['ßitem' => $item, 'produkMentah' => $produkMentah, 'kategori' => $kategori])
     ]) ?>
 <?php endforeach; ?>
 
