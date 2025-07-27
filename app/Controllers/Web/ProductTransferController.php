@@ -293,6 +293,7 @@ class ProductTransferController extends BaseController
         if ($produkGudang['stok'] < $this->request->getPost('stok')) {
             return redirect()->to('/admin/pengemasan-stok')->with('error', 'Stok produk tidak mencukupi');
         }
+        dd('test');
         $this->produkGudangModel->update($produkGudang['id'], [
             'stok_terjual' => $this->request->getPost('stok')
         ]);

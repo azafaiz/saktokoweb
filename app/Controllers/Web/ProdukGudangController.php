@@ -159,6 +159,7 @@ class ProdukGudangController extends BaseController
                 'satuan_stok' => $this->request->getPost('satuan_stok'),
                 'laba' => $this->request->getPost('laba'),
                 'harga' => $oldProdukGudang['harga_satuan_besar'] / $this->request->getPost('kemasan_kecil'),
+                'stok' => $oldProdukGudang['jumlah_besar'] / $this->request->getPost('kemasan_kecil'),
             ];
 
             $this->produkGudangModel->update($id, $data);
@@ -176,7 +177,8 @@ class ProdukGudangController extends BaseController
                 'kemasan_kecil' => $this->request->getPost('nama'),
                 'satuan_stok' => $this->request->getPost('satuan_stok'),
                 'laba' => $this->request->getPost('laba'),
-                'foto' => $filename
+                'foto' => $filename,
+                'stok' => $oldProdukGudang['jumlah_besar'] / $this->request->getPost('kemasan_kecil')
             ];
     
             $this->produkGudangModel->update($id, $data);
