@@ -38,6 +38,25 @@ class PesananController extends BaseController
         ]);
     }
 
+    public function showPesananSelesai()
+    {
+        $toko_id = session()->get('toko_id');
+        $kurirs = $this->kurirModel->findAll();
+
+        $pesanan = $this->pesananModel
+            ->select('pesanan.*, pesanan.id as pesanan_id, users.nama as nama_user')
+            ->join('users', 'users.id = pesanan.user_id')
+            ->where('pesanan.toko_id', $toko_id)
+            ->where('pesanan.status_value', 4)
+            ->paginate(10);
+
+        return view('pages/pesanan/pesanan-selesai', [
+            'pesanan' => $pesanan,
+            'pager'    => $this->pesananModel->pager,
+            'kurirs'   => $kurirs,
+        ]);
+    }
+
     public function show($id = null)
     {
         $pesanan = $this->pesananModel

@@ -117,24 +117,26 @@ Detail Pesanan
                                     </table>
 
                                     <div class="w-full d-flex align-items-center justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <form action="<?= site_url('/toko/pesanan/update/' . $pesanan['pesanan_id']) ?>" method="POST" style="display:inline; margin-right:20px">
-                                                <?= csrf_field() ?>
-                                                <input type="text" hidden="hidden" name="_method" value="PUT">
-                                                <input type="text" hidden="hidden" name="status" value="2">
-                                                <button type="submit" class="btn btn-warning">
-                                                    Diproses
-                                                </button>
-                                            </form>
-                                            <form action="<?= site_url('/toko/pesanan/update/' . $pesanan['pesanan_id']) ?>" method="POST" style="display:inline; margin-right:20px">
-                                                <?= csrf_field() ?>
-                                                <input type="text" hidden="hidden" name="_method" value="PUT">
-                                                <input type="text" hidden="hidden" name="status" value="3">
-                                                <button type="submit" class="btn btn-info">
-                                                    Dikirim
-                                                </button>
-                                            </form>
-                                        </div>
+                                        <?php if ($pesanan['status_value'] != 4): ?>
+                                            <div class="d-flex align-items-center">
+                                                <form action="<?= site_url('/toko/pesanan/update/' . $pesanan['pesanan_id']) ?>" method="POST" style="display:inline; margin-right:20px">
+                                                    <?= csrf_field() ?>
+                                                    <input type="text" hidden="hidden" name="_method" value="PUT">
+                                                    <input type="text" hidden="hidden" name="status" value="2">
+                                                    <button type="submit" class="btn btn-warning">
+                                                        Diproses
+                                                    </button>
+                                                </form>
+                                                <form action="<?= site_url('/toko/pesanan/update/' . $pesanan['pesanan_id']) ?>" method="POST" style="display:inline; margin-right:20px">
+                                                    <?= csrf_field() ?>
+                                                    <input type="text" hidden="hidden" name="_method" value="PUT">
+                                                    <input type="text" hidden="hidden" name="status" value="3">
+                                                    <button type="submit" class="btn btn-info">
+                                                        Dikirim
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        <?php endif; ?>
 
                                         <div class="btn-group">
                                             <a href="<?= base_url('/toko/pesanan') ?>" class="btn btn-primary">Kembali</a>

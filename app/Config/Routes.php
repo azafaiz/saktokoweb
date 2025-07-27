@@ -116,6 +116,7 @@ $routes->group('', ['namespace' => 'App\Controllers\Web', 'filter' => 'auth'], f
 
         $routes->group('pesanan', function ($routes) {
             $routes->get('', 'PesananController::index', ['as' => 'pesanan.index']);
+            $routes->get('selesai', 'PesananController::showPesananSelesai', ['as' => 'pesanan.selesai']);
             $routes->get('(:num)', 'PesananController::show/$1', ['as' => 'pesanan.show']);
             $routes->put('update/(:num)', 'PesananController::update/$1', ['as' => 'pesanan.update']);
             $routes->post('delete/(:num)', 'PesananController::delete/$1', ['as' => 'pesanan.delete']);

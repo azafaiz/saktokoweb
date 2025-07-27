@@ -31,6 +31,8 @@
                     <li class="nav"><a class="nav-link" href="/toko/produk"><i class="fa fa-box"></i> <span>Produk</span></a></li>
                     <li class="nav"><a class="nav-link" href="/toko/kategori"><i class="fa fa-tag"></i> <span>Kategori</span></a></li>
                     <li class="nav"><a class="nav-link" href="/toko/kurir"><i class="fa fa-paper-plane"></i> <span>Kurir</span></a></li>
+                    <li class="nav"><a class="nav-link" href="/toko/pesanan/selesai"><i class="fa fa-inbox"></i> <span>Pesenan Selesai</span></a></li>
+
             <?php endif; ?>
     </aside>
 </div>
