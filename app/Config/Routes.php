@@ -84,6 +84,12 @@ $routes->group('', ['namespace' => 'App\Controllers\Web', 'filter' => 'auth'], f
         $routes->put('produk-gudang/update/(:num)', 'ProdukGudangController::update/$1');
         $routes->post('produk-gudang/delete/(:num)', 'ProdukGudangController::delete/$1');
 
+        // Master Barang
+        $routes->get('master-produk', 'MasterProdukController::index');
+        $routes->post('master-produk/store', 'MasterProdukController::store');
+        $routes->put('master-produk/update/(:num)', 'MasterProdukController::update/$1');
+        $routes->post('master-produk/delete/(:num)', 'MasterProdukController::delete/$1');
+
         // Pengemesan Stok
         $routes->get('pengemasan-stok', 'ProductTransferController::showPengemasanStok');
         $routes->post('pengemasan-stok', 'ProductTransferController::createPengemasanStok');

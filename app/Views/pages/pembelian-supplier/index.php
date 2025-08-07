@@ -61,17 +61,15 @@
                                         </div>
                                         <div id="produkContainer" class="p-2 border rounded">
                                             <div class="d-flex mb-2 gap-1 align-items-center produk-item">
-                                                <input type="text" class="form-control" name="nama_produk[]" placeholder="Nama Produk" required>
+                                                <select class="form-control" name="kode_produk[]" required>
+                                                    <option value="">Pilih Produk</option>
+                                                    <?php foreach ($produkMaster as $item): ?>
+                                                        <option value="<?= $item['kode'] ?>"><?= $item['nama'] ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                                 <input type="number" class="form-control" name="jumlah[]" placeholder="Jumlah" required>
                                                 <input type="text" class="form-control" name="satuan[]" placeholder="Satuan" required>
                                                 <input type="number" class="form-control" name="harga[]" placeholder="Harga Satuan" required>
-                                                <select class="form-control" name="kategori[]" required>
-                                                    <option value="">Pilih Kategori</option>
-                                                    <?php foreach ($kategori as $item): ?>
-                                                        <option value="<?= $item['id'] ?>"><?= $item['nama'] ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                                <input type="text" class="form-control" name="kode_produk[]" placeholder="Kode Produk" required>
                                                 <button type="button" class="btn btn-sm btn-danger removeProduk"><i class="fas fa-trash"></i></button>
                                             </div>
                                         </div>
@@ -88,7 +86,7 @@
 
 
     <script>
-        const kategoriData = <?= json_encode($kategori) ?>;
+        const produkMasterData = <?= json_encode($produkMaster) ?>;
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -99,20 +97,18 @@
                 const produk = document.createElement('div');
                 produk.className = 'd-flex mb-2 gap-1 align-items-center produk-item';
 
-                let kategoriOptions = '<option value="">Pilih Kategori</option>';
-                kategoriData.forEach(item => {
-                    kategoriOptions += `<option value="${item.id}">${item.nama}</option>`;
+                let produkMasterOptions = '<option value="">Pilih Produk</option>';
+                produkMasterData.forEach(item => {
+                    produkMasterOptions += `<option value="${item.id}">${item.nama}</option>`;
                 });
 
                 produk.innerHTML = `
-                    <input type="text" class="form-control" name="nama_produk[]" placeholder="Nama Produk" required>
+                    <select class="form-control" name="kode_produk[]" required>
+                        ${produkMasterOptions}
+                    </select>
                     <input type="number" class="form-control" name="jumlah[]" placeholder="Jumlah" required>
                     <input type="text" class="form-control" name="satuan[]" placeholder="Satuan" required>
                     <input type="number" class="form-control" name="harga[]" placeholder="Harga Satuan" required>
-                    <select class="form-control" name="kategori[]" required>
-                        ${kategoriOptions}
-                    </select>
-                    <input type="text" class="form-control" name="kode_produk[]" placeholder="Kode Produk" required>
                     <button type="button" class="btn btn-sm btn-danger removeProduk"><i class="fas fa-trash"></i></button>
                 `;
 

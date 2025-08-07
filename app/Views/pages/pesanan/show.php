@@ -92,6 +92,9 @@ Detail Pesanan
                                             <td>: <?= esc($pesanan['catatan_kurir']) ?>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td>Status Pembayaran</td><td>: <?= esc($pesanan['status_value'] == 4 ? 'Sudah dibayar' : 'Belum dibayar') ?></td>
+                                        </tr>
                                     </table>
 
                                 </div>
