@@ -7,11 +7,6 @@
     </div>
 
     <div class="form-group">
-        <label for="kode">Kode Produk</label>
-        <input type="text" class="form-control" id="kode" name="kode" required>
-    </div>
-
-    <div class="form-group">
         <label for="kategori_id">Kategori</label>
         <select class="form-control" id="kategori_id" name="kategori_id" required>
             <option value="">-- Pilih Kategori --</option>

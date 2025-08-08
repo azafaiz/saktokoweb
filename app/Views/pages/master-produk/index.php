@@ -80,9 +80,6 @@ Master Produk
                                             <td><?= esc($produk['kode']) ?></td>
                                             <td><?= esc($produk['kategori_nama'] ?? '-') ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-show-<?= $produk['id'] ?>">
-                                                    <i class="fas fa-eye"></i>
-                                                </button>
 
                                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit-<?= $produk['id'] ?>">
                                                     <i class="fas fa-edit"></i>
