@@ -59,7 +59,7 @@
                                                     <td><?= esc($produk['kode']) ?></td>
                                                     <td><?= esc($produk['nama']) ?></td>
                                                     <td>Rp. <?= esc(number_format($produk['harga'])) ?></td>
-                                                    <td><?= esc($produk['stok']) ?></td>
+                                                    <td><?= esc($produk['stok'] - $produk['terjual']) ?></td>
                                                     <td>
                                                         <img src="<?= base_url('uploads/produk/' . $produk['foto']) ?>" alt="" style="width: 50px; height: 50px; object-fit: cover;">
                                                     </td>

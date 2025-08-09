@@ -136,6 +136,7 @@ class PesananController extends BaseController
                 ]);
 
                 $this->produkTokoModel->update($item['id_barang'], [
+                    'stok' => $item['stok'] - $item['jumlah'],
                     'terjual' => $item['terjual']
                 ]);
             }
