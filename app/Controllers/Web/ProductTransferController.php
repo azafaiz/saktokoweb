@@ -139,7 +139,7 @@ class ProductTransferController extends BaseController
                 produk_transfer.*, produk_gudang.nama as nama_produk_gudang, 
                 produk_gudang.foto as produk_gudang_foto, produk_gudang.stok as stok_produk_gudang,
                 produk_gudang.kode as kode_produk_gudang, produk_gudang.harga as harga_produk_gudang,
-                produk_gudang.kategori_id as kategori_id_produk_gudang 
+                produk_gudang.kategori_id as kategori_id_produk_gudang, produk_gudang.laba as laba_produk_gudang 
             ')
             ->join('produk_gudang', 'produk_gudang.id = produk_transfer.produk_gudang_id', 'left')
             ->where('produk_transfer.toko_id', $toko_id)
@@ -187,7 +187,7 @@ class ProductTransferController extends BaseController
                 $produkIn = $this->produkTokoModel->insert([
                     'kode' => $productTransfer['kode_produk_gudang'],
                     'nama' => $productTransfer['nama_produk_gudang'],
-                    'harga' => $productTransfer['harga_produk_gudang'],
+                    'harga' => $productTransfer['harga_produk_gudang'] + $productTransfer['laba_produk_gudang'],
                     'stok' => $productTransfer['kuantiti'],
                     'deskripsi' => "",
                     'kategori_id' => $productTransfer['kategori_id_produk_gudang'],

@@ -7,6 +7,7 @@ use App\Models\AlamatModel;
 use App\Models\KeranjangModel;
 use App\Models\PesananModel;
 use App\Models\PesananProdukModel;
+use App\Models\ProdukTokoModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class PesananController extends BaseController
@@ -15,6 +16,7 @@ class PesananController extends BaseController
     protected $keranjangModel;
     protected $pesnananProdukModel;
     protected $alamatModel;
+    protected $produkTokoModel;
 
     public function __construct()
     {
@@ -22,6 +24,7 @@ class PesananController extends BaseController
         $this->keranjangModel = new KeranjangModel();
         $this->pesnananProdukModel = new PesananProdukModel();
         $this->alamatModel = new AlamatModel();
+        $this->produkTokoModel = new ProdukTokoModel();
     }
     public function getAllPesananByFilters()
     {
@@ -130,6 +133,10 @@ class PesananController extends BaseController
                     'jumlah' => $item['jumlah'],
                     'harga' => $item['total_harga'],
                     'harga_satuan' => $item['harga_satuan']
+                ]);
+
+                $this->produkTokoModel->update($item['id_barang'], [
+                    'terjual' => $item['terjual']
                 ]);
             }
 

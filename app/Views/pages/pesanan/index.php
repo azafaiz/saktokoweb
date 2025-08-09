@@ -47,7 +47,7 @@ Pesanan
                                             <th class="text-center">Kode</th>
                                             <th>Nama Pengguna</th>
                                             <th>Harga</th>
-                                            <th>Status</th>
+                                            <th>Status Pengiriman</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
