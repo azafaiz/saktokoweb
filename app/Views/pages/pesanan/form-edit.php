@@ -19,6 +19,7 @@
                 <option value="1" <?= $produk['status_value'] === 1 ? 'selected' : '' ?> >Diterima</option>
                 <option value="2" <?= $produk['status_value'] === 2 ? 'selected' : '' ?> >Diproses</option>
                 <option value="3" <?= $produk['status_value'] === 3 ? 'selected' : '' ?> >Dikirim</option>
+                <option value="3" <?= $produk['status_value'] === 4 ? 'selected' : '' ?> >Selesai</option>
         </select>
     </div>
 
