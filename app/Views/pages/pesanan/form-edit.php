@@ -17,13 +17,11 @@
         <select class="form-control" id="kategori" name="status" required>
             <option value="">Pilih Status</option>
 
-            <?php if ($produk['status_value'] === 1): ?>
-                <option value="2" <?= $produk['status_value'] === 2 ? 'selected' : '' ?>>Diproses</option>
-            <?php elseif ($produk['status_value'] === 2): ?>
-                <option value="3" <?= $produk['status_value'] === 3 ? 'selected' : '' ?>>Dikirim</option>
-            <?php elseif ($produk['status_value'] === 3): ?>
-                <option value="4" <?= $produk['status_value'] === 4 ? 'selected' : '' ?>>Selesai</option>
-            <?php endif; ?>
+            <?php if ($produk['status_value'] == 1): ?>
+                <option value="2" <?= $produk['status_value'] == 2 ? 'selected' : '' ?>>Diproses</option>
+            <?php elseif ($produk['status_value'] == 2): ?>
+                <option value="3" <?= $produk['status_value'] == 3 ? 'selected' : '' ?>>Dikirim</option>
+            <?php  endif; ?>
         </select>
     </div>
 
